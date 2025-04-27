@@ -3,6 +3,7 @@ import 'package:taush/controller/services/auth_services/auth_services.dart';
 import 'package:taush/utils/colors.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:taush/view/logo_video.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -28,10 +29,7 @@ class _AuthScreenState extends State<AuthScreen> {
       appBar: AppBar(
         backgroundColor: white,
         centerTitle: true,
-        title: Image(
-          image: AssetImage('assets/images/taush_logo.png'),
-          height: height * 0.04,
-        ),
+        title: const LogoVideo(),
       ),
       body: SafeArea(
         child: SingleChildScrollView(

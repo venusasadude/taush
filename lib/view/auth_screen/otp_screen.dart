@@ -4,6 +4,7 @@ import 'package:taush/view/auth_screen/auth_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:taush/view/logo_video.dart';
 
 import '../../utils/colors.dart';
 
@@ -26,10 +27,7 @@ class _OTPScreenState extends State<OTPScreen> {
       appBar: AppBar(
         backgroundColor: white,
         centerTitle: true,
-        title: Image(
-          image: const AssetImage('assets/images/taush_logo.png'),
-          height: height * 0.04,
-        ),
+        title: const LogoVideo(),
       ),
       body: SafeArea(
         child: Container(

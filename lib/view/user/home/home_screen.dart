@@ -555,7 +555,7 @@ class HomeScreenCategoriesList extends StatelessWidget {
                 horizontal: width * 0.02,
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
                     image: AssetImage(
