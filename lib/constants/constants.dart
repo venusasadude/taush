@@ -11,7 +11,7 @@ const String keySecret = '<Razorpay Key Secrets>';
 const String keyID = '<Razorpay Key ID>';
 
 List<String> categories = [
-  'Prime',
+  'For you',
   'Electronics',
   'Business',
   'Home',

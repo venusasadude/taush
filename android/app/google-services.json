@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "931151863583",
-    "project_id": "fir-470fe",
-    "storage_bucket": "fir-470fe.appspot.com"
+    "project_number": "813698886284",
+    "project_id": "taush-313db",
+    "storage_bucket": "taush-313db.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:931151863583:android:bfe22f04fde185ff2f1a2a",
+        "mobilesdk_app_id": "1:813698886284:android:abb05e6493f70ece7fa9a9",
         "android_client_info": {
           "package_name": "com.example.taush"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBcurkNqa1sEnuoJhZotK8HB3_HU7v3M7w"
+          "current_key": "AIzaSyDk2k6GiYRI5qE1cvUGk89Gk8UMmd1aWdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813698886284:android:aefa5ecdd3593b937fa9a9",
+        "android_client_info": {
+          "package_name": "com.venus.taush"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk2k6GiYRI5qE1cvUGk89Gk8UMmd1aWdQ"
         }
       ],
       "services": {

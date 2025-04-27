@@ -710,7 +710,7 @@ class HomePageAppBar extends StatelessWidget {
                       left: width * 0.03,
                     ),
                     child: Text(
-                      'Search taush.in',
+                      'Search taush products',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!

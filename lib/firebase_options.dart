@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -50,19 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBcurkNqa1sEnuoJhZotK8HB3_HU7v3M7w',
-    appId: '1:931151863583:android:bfe22f04fde185ff2f1a2a',
-    messagingSenderId: '931151863583',
-    projectId: 'fir-470fe',
-    storageBucket: 'fir-470fe.appspot.com',
+    apiKey: 'AIzaSyDk2k6GiYRI5qE1cvUGk89Gk8UMmd1aWdQ',
+    appId: '1:813698886284:android:abb05e6493f70ece7fa9a9',
+    messagingSenderId: '813698886284',
+    projectId: 'taush-313db',
+    storageBucket: 'taush-313db.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA-Yt0MGRi7kbt04wZI46db4gEmNzy7TDg',
-    appId: '1:931151863583:ios:ac9e71f1fb66305c2f1a2a',
-    messagingSenderId: '931151863583',
-    projectId: 'fir-470fe',
-    storageBucket: 'fir-470fe.appspot.com',
+    apiKey: 'AIzaSyBAOnM8ClrHN-3s_Hyxqev1N3_W-uveE1o',
+    appId: '1:813698886284:ios:642e8f408df6457f7fa9a9',
+    messagingSenderId: '813698886284',
+    projectId: 'taush-313db',
+    storageBucket: 'taush-313db.firebasestorage.app',
     iosBundleId: 'com.example.taush',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAAwfIAnU3ZlvP5OgE_ucFv_LXbPu8SnHg',
+    appId: '1:813698886284:web:a5dc4453757fb56b7fa9a9',
+    messagingSenderId: '813698886284',
+    projectId: 'taush-313db',
+    authDomain: 'taush-313db.firebaseapp.com',
+    storageBucket: 'taush-313db.firebasestorage.app',
+    measurementId: 'G-99L6KYT9YB',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBAOnM8ClrHN-3s_Hyxqev1N3_W-uveE1o',
+    appId: '1:813698886284:ios:642e8f408df6457f7fa9a9',
+    messagingSenderId: '813698886284',
+    projectId: 'taush-313db',
+    storageBucket: 'taush-313db.firebasestorage.app',
+    iosBundleId: 'com.example.taush',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAAwfIAnU3ZlvP5OgE_ucFv_LXbPu8SnHg',
+    appId: '1:813698886284:web:3c841a49af926b557fa9a9',
+    messagingSenderId: '813698886284',
+    projectId: 'taush-313db',
+    authDomain: 'taush-313db.firebaseapp.com',
+    storageBucket: 'taush-313db.firebasestorage.app',
+    measurementId: 'G-TR6EYCT84Z',
+  );
+
 }

@@ -1,0 +1,217 @@
+[1mdiff --git a/android/app/build.gradle b/android/app/build.gradle[m
+[1mindex 15f5096..b436951 100644[m
+[1m--- a/android/app/build.gradle[m
+[1m+++ b/android/app/build.gradle[m
+[36m@@ -21,7 +21,10 @@[m [mif (flutterVersionName == null) {[m
+     flutterVersionName = '1.0'[m
+ }[m
+ [m
+[31m-apply plugin: 'com.android.application'[m
+[32m+[m[32mapply plugin: 'com.android.application'[m
+[32m+[m[32m// START: FlutterFire Configuration[m
+[32m+[m[32mapply plugin: 'com.google.gms.google-services'[m
+[32m+[m[32m// END: FlutterFire Configuration[m[41m[m
+ apply plugin: 'kotlin-android'[m
+ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"[m
+ [m
+[1mdiff --git a/android/app/google-services.json b/android/app/google-services.json[m
+[1mindex 79523e6..e495967 100644[m
+[1m--- a/android/app/google-services.json[m
+[1m+++ b/android/app/google-services.json[m
+[36m@@ -1,13 +1,13 @@[m
+ {[m
+   "project_info": {[m
+[31m-    "project_number": "931151863583",[m
+[31m-    "project_id": "fir-470fe",[m
+[31m-    "storage_bucket": "fir-470fe.appspot.com"[m
+[32m+[m[32m    "project_number": "813698886284",[m
+[32m+[m[32m    "project_id": "taush-313db",[m
+[32m+[m[32m    "storage_bucket": "taush-313db.firebasestorage.app"[m
+   },[m
+   "client": [[m
+     {[m
+       "client_info": {[m
+[31m-        "mobilesdk_app_id": "1:931151863583:android:bfe22f04fde185ff2f1a2a",[m
+[32m+[m[32m        "mobilesdk_app_id": "1:813698886284:android:abb05e6493f70ece7fa9a9",[m
+         "android_client_info": {[m
+           "package_name": "com.example.taush"[m
+         }[m
+[36m@@ -15,7 +15,26 @@[m
+       "oauth_client": [],[m
+       "api_key": [[m
+         {[m
+[31m-          "current_key": "AIzaSyBcurkNqa1sEnuoJhZotK8HB3_HU7v3M7w"[m
+[32m+[m[32m          "current_key": "AIzaSyDk2k6GiYRI5qE1cvUGk89Gk8UMmd1aWdQ"[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "services": {[m
+[32m+[m[32m        "appinvite_service": {[m
+[32m+[m[32m          "other_platform_oauth_client": [][m
+[32m+[m[32m        }[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "client_info": {[m
+[32m+[m[32m        "mobilesdk_app_id": "1:813698886284:android:aefa5ecdd3593b937fa9a9",[m
+[32m+[m[32m        "android_client_info": {[m
+[32m+[m[32m          "package_name": "com.venus.taush"[m
+[32m+[m[32m        }[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "oauth_client": [],[m
+[32m+[m[32m      "api_key": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "current_key": "AIzaSyDk2k6GiYRI5qE1cvUGk89Gk8UMmd1aWdQ"[m
+         }[m
+       ],[m
+       "services": {[m
+[1mdiff --git a/android/build.gradle b/android/build.gradle[m
+[1mindex 6b815dd..ecc816e 100644[m
+[1m--- a/android/build.gradle[m
+[1m+++ b/android/build.gradle[m
+[36m@@ -5,7 +5,10 @@[m [mbuildscript {[m
+         mavenCentral()[m
+     }[m
+ [m
+[31m-    dependencies {[m
+[32m+[m[32m    dependencies {[m
+[32m+[m[32m        // START: FlutterFire Configuration[m
+[32m+[m[32m        classpath 'com.google.gms:google-services:4.3.15'[m
+[32m+[m[32m        // END: FlutterFire Configuration[m[41m[m
+         classpath 'com.android.tools.build:gradle:7.2.0'[m
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"[m
+     }[m
+[1mdiff --git a/lib/constants/constants.dart b/lib/constants/constants.dart[m
+[1mindex 7c535a5..857a84c 100644[m
+[1m--- a/lib/constants/constants.dart[m
+[1m+++ b/lib/constants/constants.dart[m
+[36m@@ -11,7 +11,7 @@[m [mconst String keySecret = '<Razorpay Key Secrets>';[m
+ const String keyID = '<Razorpay Key ID>';[m
+ [m
+ List<String> categories = [[m
+[31m-  'Prime',[m
+[32m+[m[32m  'For you',[m[41m[m
+   'Electronics',[m
+   'Business',[m
+   'Home',[m
+[1mdiff --git a/lib/firebase_options.dart b/lib/firebase_options.dart[m
+[1mindex 5964e08..c18cd0a 100644[m
+[1m--- a/lib/firebase_options.dart[m
+[1m+++ b/lib/firebase_options.dart[m
+[36m@@ -17,10 +17,7 @@[m [mimport 'package:flutter/foundation.dart'[m
+ class DefaultFirebaseOptions {[m
+   static FirebaseOptions get currentPlatform {[m
+     if (kIsWeb) {[m
+[31m-      throw UnsupportedError([m
+[31m-        'DefaultFirebaseOptions have not been configured for web - '[m
+[31m-        'you can reconfigure this by running the FlutterFire CLI again.',[m
+[31m-      );[m
+[32m+[m[32m      return web;[m
+     }[m
+     switch (defaultTargetPlatform) {[m
+       case TargetPlatform.android:[m
+[36m@@ -28,15 +25,9 @@[m [mclass DefaultFirebaseOptions {[m
+       case TargetPlatform.iOS:[m
+         return ios;[m
+       case TargetPlatform.macOS:[m
+[31m-        throw UnsupportedError([m
+[31m-          'DefaultFirebaseOptions have not been configured for macos - '[m
+[31m-          'you can reconfigure this by running the FlutterFire CLI again.',[m
+[31m-        );[m
+[32m+[m[32m        return macos;[m
+       case TargetPlatform.windows:[m
+[31m-        throw UnsupportedError([m
+[31m-          'DefaultFirebaseOptions have not been configured for windows - '[m
+[31m-          'you can reconfigure this by running the FlutterFire CLI again.',[m
+[31m-        );[m
+[32m+[m[32m        return windows;[m
+       case TargetPlatform.linux:[m
+         throw UnsupportedError([m
+           'DefaultFirebaseOptions have not been configured for linux - '[m
+[36m@@ -50,19 +41,49 @@[m [mclass DefaultFirebaseOptions {[m
+   }[m
+ [m
+   static const FirebaseOptions android = FirebaseOptions([m
+[31m-    apiKey: 'AIzaSyBcurkNqa1sEnuoJhZotK8HB3_HU7v3M7w',[m
+[31m-    appId: '1:931151863583:android:bfe22f04fde185ff2f1a2a',[m
+[31m-    messagingSenderId: '931151863583',[m
+[31m-    projectId: 'fir-470fe',[m
+[31m-    storageBucket: 'fir-470fe.appspot.com',[m
+[32m+[m[32m    apiKey: 'AIzaSyDk2k6GiYRI5qE1cvUGk89Gk8UMmd1aWdQ',[m
+[32m+[m[32m    appId: '1:813698886284:android:abb05e6493f70ece7fa9a9',[m
+[32m+[m[32m    messagingSenderId: '813698886284',[m
+[32m+[m[32m    projectId: 'taush-313db',[m
+[32m+[m[32m    storageBucket: 'taush-313db.firebasestorage.app',[m
+   );[m
+ [m
+   static const FirebaseOptions ios = FirebaseOptions([m
+[31m-    apiKey: 'AIzaSyA-Yt0MGRi7kbt04wZI46db4gEmNzy7TDg',[m
+[31m-    appId: '1:931151863583:ios:ac9e71f1fb66305c2f1a2a',[m
+[31m-    messagingSenderId: '931151863583',[m
+[31m-    projectId: 'fir-470fe',[m
+[31m-    storageBucket: 'fir-470fe.appspot.com',[m
+[32m+[m[32m    apiKey: 'AIzaSyBAOnM8ClrHN-3s_Hyxqev1N3_W-uveE1o',[m
+[32m+[m[32m    appId: '1:813698886284:ios:642e8f408df6457f7fa9a9',[m
+[32m+[m[32m    messagingSenderId: '813698886284',[m
+[32m+[m[32m    projectId: 'taush-313db',[m
+[32m+[m[32m    storageBucket: 'taush-313db.firebasestorage.app',[m
+[32m+[m[32m    iosBundleId: 'com.example.taush',[m
+[32m+[m[32m  );[m
+[32m+[m
+[32m+[m[32m  static const FirebaseOptions web = FirebaseOptions([m
+[32m+[m[32m    apiKey: 'AIzaSyAAwfIAnU3ZlvP5OgE_ucFv_LXbPu8SnHg',[m
+[32m+[m[32m    appId: '1:813698886284:web:a5dc4453757fb56b7fa9a9',[m
+[32m+[m[32m    messagingSenderId: '813698886284',[m
+[32m+[m[32m    projectId: 'taush-313db',[m
+[32m+[m[32m    authDomain: 'taush-313db.firebaseapp.com',[m
+[32m+[m[32m    storageBucket: 'taush-313db.firebasestorage.app',[m
+[32m+[m[32m    measurementId: 'G-99L6KYT9YB',[m
+[32m+[m[32m  );[m
+[32m+[m
+[32m+[m[32m  static const FirebaseOptions macos = FirebaseOptions([m
+[32m+[m[32m    apiKey: 'AIzaSyBAOnM8ClrHN-3s_Hyxqev1N3_W-uveE1o',[m
+[32m+[m[32m    appId: '1:813698886284:ios:642e8f408df6457f7fa9a9',[m
+[32m+[m[32m    messagingSenderId: '813698886284',[m
+[32m+[m[32m    projectId: 'taush-313db',[m
+[32m+[m[32m    storageBucket: 'taush-313db.firebasestorage.app',[m
+     iosBundleId: 'com.example.taush',[m
+   );[m
+[31m-}[m
+[32m+[m
+[32m+[m[32m  static const FirebaseOptions windows = FirebaseOptions([m
+[32m+[m[32m    apiKey: 'AIzaSyAAwfIAnU3ZlvP5OgE_ucFv_LXbPu8SnHg',[m
+[32m+[m[32m    appId: '1:813698886284:web:3c841a49af926b557fa9a9',[m
+[32m+[m[32m    messagingSenderId: '813698886284',[m
+[32m+[m[32m    projectId: 'taush-313db',[m
+[32m+[m[32m    authDomain: 'taush-313db.firebaseapp.com',[m
+[32m+[m[32m    storageBucket: 'taush-313db.firebasestorage.app',[m
+[32m+[m[32m    measurementId: 'G-TR6EYCT84Z',[m
+[32m+[m[32m  );[m
+[32m+[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/lib/view/user/home/home_screen.dart b/lib/view/user/home/home_screen.dart[m
+[1mindex 46cb4b3..e084808 100644[m
+[1m--- a/lib/view/user/home/home_screen.dart[m
+[1m+++ b/lib/view/user/home/home_screen.dart[m
+[36m@@ -710,7 +710,7 @@[m [mclass HomePageAppBar extends StatelessWidget {[m
+                       left: width * 0.03,[m
+                     ),[m
+                     child: Text([m
+[31m-                      'Search taush.in',[m
+[32m+[m[32m                      'Search taush products',[m[41m[m
+                       style: Theme.of(context)[m
+                           .textTheme[m
+                           .bodySmall![m
+[1mdiff --git a/lib/view/user/profile/profile_screen.dart b/lib/view/user/profile/profile_screen.dart[m
+[1mindex 30989aa..bf9deb3 100644[m
+[1m--- a/lib/view/user/profile/profile_screen.dart[m
+[1m+++ b/lib/view/user/profile/profile_screen.dart[m
+[36m@@ -567,7 +567,7 @@[m [mclass UserGreetingsYouScreen extends StatelessWidget {[m
+               children: [[m
+                 TextSpan(text: 'Hello, ', style: textTheme.bodyLarge),[m
+                 TextSpan([m
+[31m-                  text: 'Sanjay',[m
+[32m+[m[32m                  text: 'Xavier',[m[41m[m
+                   style: textTheme.bodyLarge!.copyWith([m
+                     fontWeight: FontWeight.bold,[m
+                   ),[m
